@@ -12,6 +12,7 @@ from presidio_analyzer import AnalyzerEngine, AnalyzerEngineProvider, AnalyzerRe
 from werkzeug.exceptions import HTTPException
 
 DEFAULT_PORT = "3000"
+DEFAULT_HOST = "0.0.0.0"
 
 LOGGING_CONF_FILE = "logging.ini"
 
@@ -135,5 +136,6 @@ class Server:
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", DEFAULT_PORT))
+    host = int(os.environ.get("HOST", DEFAULT_HOST))
     server = Server()
-    server.app.run(host="0.0.0.0", port=port)
+    server.app.run(host=host, port=port)
